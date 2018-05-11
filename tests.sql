@@ -17,7 +17,7 @@ FOREIGN KEY (InvoiceId) REFERENCES Invoice(InvoiceId),
 FOREIGN KEY (TrackId) REFERENCES Track(TrackId)); 
 
 
-'''EXPORT DATA TO CSV FROM DATABASE
+'''EXPORT DATA TO CSV FROM DATABASE'''
 sqlite> .mode csv
 sqlite> .output newFile.csv
 sqlite> SELECT * FROM myTable;
@@ -37,7 +37,7 @@ ON Genre.GenreId = Track.GenreId AND Track.MediaTypeId = MediaType.MediaTypeId
 WHERE MediaType.Name = 'MPEG audio file' AND Genre.Name = 'Pop';
 
 
-'''How many unique customers have purchased a Jazz track
+'''How many unique customers have purchased a Jazz track'''
 SELECT COUNT(distinct Invoice.CustomerId)
 FROM Invoice,InvoiceLine,Track,Genre
 ON Invoice.InvoiceId = InvoiceLine.InvoiceId AND InvoiceLine.TrackId = Track.TrackId AND Track.GenreId = Genre.GenreId
